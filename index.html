@@ -31,11 +31,12 @@
 
     <div class="hero2-panel enter-side" id="demo">
       <div class="mode" id="mode" data-mode="voice">
-        <span class="mode-knob" aria-hidden="true"></span>
-        <button class="on" data-mode="voice">🎙 Voice</button><button data-mode="chat">💬 Chat</button>
+        <button class="on" data-mode="voice">🎙 Voice</button>
+        <span class="switch" id="modeSwitch" role="switch" aria-label="Switch between voice and chat"><span class="mode-knob"></span></span>
+        <button data-mode="chat">💬 Chat</button>
       </div>
       <div class="orb-wrap">
-        <div class="avatar" id="avatar"></div>
+        <div class="avatar" id="avatar" role="button" aria-label="Start a demo call"><span class="tri"></span></div>
         <div class="wave" id="wave" aria-hidden="true"></div>
         <div class="status" id="status"><i></i>Idle · tap to start a call</div>
       </div>
@@ -253,6 +254,10 @@ callBtn.onclick=()=>{st.className='status on';st.innerHTML='<i></i>Connecting…
   callBtn.style.display='none';endBtn.style.display=''};
 endBtn.onclick=()=>{clearInterval(timer);av.classList.remove('live');st.className='status';st.innerHTML='<i></i>Call ended · tap to start again';
   endBtn.style.display='none';callBtn.style.display=''};
+
+// hero: switch track toggles to the other mode; big play button starts/ends the call
+document.getElementById('modeSwitch').onclick=()=>document.querySelector('#mode button:not(.on)').click();
+av.onclick=()=>(endBtn.style.display==='none'?callBtn:endBtn).click();
 
 // hero: voice/chat samples (simulated playback)
 const SAMPLES={voice:[["NBFC · EMI reminder (Hinglish)","Logs a promise-to-pay date","1:05"],["Real estate · portal lead","Qualifies budget, books a site visit","1:52"]],

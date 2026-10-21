@@ -77,3 +77,66 @@ pre{background:var(--ink);border-color:var(--ink);color:#eadcff}
 .article .callout{background:var(--tint)}
 table.cmp .n{color:#dc2626}
 footer{background:#fafafa}
+
+/* ---- hero demo panel: glass card, toggle switch, glass play button, pill cards ---- */
+.hero2-panel{border-radius:40px;padding:26px 24px 24px;border-color:rgba(255,255,255,.2);
+  background:radial-gradient(80% 45% at 50% 0%,rgba(255,255,255,.14),transparent 70%),rgba(255,255,255,.06);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 80px -40px rgba(0,0,0,.6)}
+
+.mode{display:flex;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);padding:8px 18px;margin:0 auto 24px;width:fit-content}
+.mode button{flex:none;padding:6px 4px;color:rgba(255,255,255,.5);font-size:15px}
+.mode button.on{color:#fff}
+.mode .switch{position:relative;width:84px;height:44px;border-radius:999px;cursor:pointer;flex:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.mode .switch::after{content:"";position:absolute;right:12px;top:50%;width:26px;height:10px;margin-top:-5px;border-radius:999px;background:rgba(0,0,0,.45);transition:.45s}
+.mode .mode-knob{top:3px;bottom:auto;left:3px;width:36px;height:36px;
+  background:radial-gradient(circle at 40% 35%,#fff,#e9e6ef 60%,#cfc9d8);box-shadow:0 4px 12px rgba(0,0,0,.45);z-index:1}
+.mode[data-mode="chat"] .mode-knob{transform:translateX(40px)}
+.mode[data-mode="chat"] .switch::after{right:auto;left:12px}
+
+/* big glass play button replaces the orb */
+.orb-wrap{padding:6px 0 0}
+.orb-wrap .avatar{width:136px;height:136px;cursor:pointer;margin-bottom:0;
+  background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.28),rgba(255,255,255,.08) 70%);
+  border:1px solid rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 12px 40px -12px rgba(0,0,0,.5);
+  animation:none;transition:transform .25s,background .25s}
+.orb-wrap .avatar:hover{transform:scale(1.05)}
+.orb-wrap .avatar::before{inset:-22px;border:1px solid rgba(255,255,255,.16);animation:none}
+.orb-wrap .avatar.live::before{animation:ring 2s ease-out infinite}
+.orb-wrap .avatar .tri{position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-left:32px solid #fff;border-top:20px solid transparent;border-bottom:20px solid transparent;transition:.2s}
+.orb-wrap .avatar.live .tri{border:0;width:30px;height:34px;left:50%;
+  background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65%)}
+
+/* thin waveform that is visible at rest */
+.wave{max-width:none;height:56px;gap:6px;margin:18px 0 10px}
+.wave i{max-width:1.5px;background:rgba(255,255,255,.75);transform:scaleY(.55)}
+.wave i:nth-child(odd){transform:scaleY(.25)}
+
+/* pill sample cards */
+.samples{gap:14px;margin:6px 0 18px}
+.sample{border-radius:999px;padding:14px 22px 14px 14px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+.sample .pb{width:56px;height:56px;background:rgba(255,255,255,.14);color:#fff;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.sample b{font-size:16px}
+.sample .len{font-size:16px;font-weight:700;color:#fff}
+
+/* pill action buttons */
+.hero2-panel .row{gap:14px}
+.hero2-panel .row .btn{padding:17px 22px;font-size:16px}
+.hero2-panel .btn-light{background:linear-gradient(180deg,#fff,#f3e8ff)}
+.hero2-panel .btn-outline-light{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2)}
+
+@media(max-width:620px){
+  .hero2-panel{border-radius:30px;padding:18px 14px}
+  .mode{gap:8px;padding:6px 12px}
+  .mode button{font-size:14px}
+  .orb-wrap .avatar{width:104px;height:104px}
+  .orb-wrap .avatar .tri{border-left-width:26px;border-top-width:16px;border-bottom-width:16px}
+  .wave{gap:3px;height:44px}
+  .wave i{min-width:1.5px}
+  .sample{padding:10px 16px 10px 10px;gap:10px}
+  .sample .pb{width:42px;height:42px}
+  .sample b{font-size:14px}
+  .sample small,.sample .mini{display:none}
+  .sample .len{font-size:14px}
+  .hero2-panel .row .btn{padding:14px 12px;font-size:14px;white-space:nowrap}
+}
