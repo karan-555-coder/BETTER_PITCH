@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>Customers – BetterPitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/pages.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Customer stories</div>
+    <h1>Teams that let <em>BetterPitch make the calls</em></h1>
+    <p class="lead">How lenders, sellers, builders and schools use BetterPitch to reach more customers with smaller teams.</p>
+  </div>
+</header>
+
+<div class="marquee"><div class="track">
+  <span>NorthBank</span><span>Kiranaly</span><span>MediPlus</span><span>UrbanNest</span><span>Swiftship</span><span>EduSpark</span><span>Fintrail</span><span>CareConnect</span><span>AutoHub</span><span>GreenGrid</span>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button><button data-f="bfsi">BFSI</button><button data-f="ecom">E-commerce</button><button data-f="realty">Real estate</button><button data-f="edu">Education</button>
+    </div>
+    <div class="grid g3" id="stories">
+      <div class="card hover" data-cat="bfsi"><div class="thumb">🏦</div><div class="meta">NBFC · Pune</div><h3>Fintrail collected 35% more EMIs on time</h3><p>Reminder calls three days before and on the due date, with WhatsApp payment links sent right after each call.</p></div>
+      <div class="card hover" data-cat="ecom"><div class="thumb">🛍</div><div class="meta">D2C fashion · Jaipur</div><h3>Kiranaly cut COD returns by 30%</h3><p>Every cash-on-delivery order is confirmed by a short call in Hindi before it ships.</p></div>
+      <div class="card hover" data-cat="realty"><div class="thumb">🏠</div><div class="meta">Real estate · Mumbai</div><h3>UrbanNest booked 4× more site visits</h3><p>Portal leads get a call within two minutes, and only qualified buyers reach the sales team.</p></div>
+      <div class="card hover" data-cat="edu"><div class="thumb">🎓</div><div class="meta">Coaching · Jaipur</div><h3>EduSpark called 50,000 enquiries in one season</h3><p>Every enquiry got a call in the parent's language, and counselling slots were booked straight into the calendar.</p></div>
+      <div class="card hover" data-cat="bfsi"><div class="thumb">🛡</div><div class="meta">Insurance · Chennai</div><h3>SecureLife renewed 22% more policies</h3><p>Renewal reminders in Tamil and English, with a payment link sent on WhatsApp after each call.</p></div>
+      <div class="card hover" data-cat="ecom"><div class="thumb">🛒</div><div class="meta">Grocery app · Delhi</div><h3>Swiftship won back 2.5× more abandoned carts</h3><p>Shoppers who left items behind get a friendly call with a reminder and a discount code.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap grid g2">
+    <div class="card reveal"><p class="quote">"Our telecallers used to spend all day on reminder calls. Now BetterPitch does those, and the team focuses on difficult accounts."</p><div class="who"><i>R</i><div><b>Rohan M.</b>Collections Head, Fintrail</div></div></div>
+    <div class="card reveal"><p class="quote">"Leads used to wait a day for a callback. Now they get a call in two minutes, and our weekend site visits are full."</p><div class="who"><i>A</i><div><b>Anita S.</b>Sales Director, UrbanNest</div></div></div>
+  </div>
+  <p class="center" style="color:var(--muted);font-size:13px;margin-top:18px">*Businesses, people and figures on this page are fictional sample data for this demo.</p>
+</section>
+
+<section>
+  <div class="wrap"><div class="banner reveal"><h3>Want results like these? Start with a free pilot.</h3><a href="contact.html" class="btn btn-primary">Book a demo</a></div></div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/main.js" data-root="./"></script>
+<script>
+document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll("#stories .card").forEach(c=>c.style.display=(b.dataset.f==="all"||c.dataset.cat===b.dataset.f)?"":"none");
+});
+</script>
+</body>
+</html>

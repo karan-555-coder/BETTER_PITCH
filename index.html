@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>BetterPitch – Every call, your best pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/pages.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="hero2">
+  <div class="tiles" id="tiles" aria-hidden="true"></div>
+  <div class="wrap hero2-grid">
+    <div class="hero2-copy">
+      <span class="pill enter" style="--d:.05s">⚡ Voice AI agents for Indian businesses</span>
+      <h1 class="enter" style="--d:.15s">Let AI make the calls.<br>Your team closes<br><span class="grad">the deals.</span></h1>
+      <p class="enter" style="--d:.3s">BetterPitch voice agents talk to your customers in Hindi, Hinglish and regional languages. They qualify leads, send EMI reminders, confirm COD orders and book visits. We set up the whole workflow, from the call to your CRM.</p>
+      <div class="ctas enter" style="justify-content:flex-start;--d:.42s">
+        <a href="contact.html" class="btn btn-light">Book a demo →</a>
+        <a href="#demo" class="btn btn-outline-light">Try the agent</a>
+      </div>
+      <div class="hero2-stats enter" style="--d:.54s"><div><b>20+</b>Indian languages</div><div><b>₹3</b>per minute onwards</div><div><b>2 weeks</b>to go live</div></div>
+    </div>
+
+    <div class="hero2-panel enter-side" id="demo">
+      <div class="mode" id="mode" data-mode="voice">
+        <span class="mode-knob" aria-hidden="true"></span>
+        <button class="on" data-mode="voice">🎙 Voice</button><button data-mode="chat">💬 Chat</button>
+      </div>
+      <div class="orb-wrap">
+        <div class="avatar" id="avatar"></div>
+        <div class="wave" id="wave" aria-hidden="true"></div>
+        <div class="status" id="status"><i></i>Idle · tap to start a call</div>
+      </div>
+      <div class="samples" id="samples"></div>
+      <div class="row">
+        <button class="btn btn-light" id="callBtn">📞 Start call</button>
+        <button class="btn btn-end" id="endBtn" style="display:none">End call</button>
+        <a href="contact.html" class="btn btn-outline-light">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap chips">
+  <span class="chip">Lead qualification</span><span class="chip">EMI &amp; payment reminders</span><span class="chip">COD confirmation</span><span class="chip">Site-visit booking</span><span class="chip">Candidate screening</span><span class="chip">CSAT surveys</span>
+</div>
+
+<div class="marquee"><div class="track" id="track">
+  <span>NorthBank</span><span>Kiranaly</span><span>MediPlus</span><span>UrbanNest</span><span>Swiftship</span><span>EduSpark</span><span>Fintrail</span><span>CareConnect</span><span>AutoHub</span><span>GreenGrid</span><span>TravelKart</span>
+</div></div>
+
+<section>
+  <div class="wrap center reveal">
+    <div class="eyebrow">See it in action</div>
+    <h2>Watch a BetterPitch agent at work</h2>
+    <div class="video demo-player" data-demo="emi"></div>
+  </div>
+</section>
+
+<section id="mission" style="padding-top:20px">
+  <div class="wrap center reveal">
+    <div class="eyebrow">Why BetterPitch</div>
+    <h2>Phone calls still run Indian business</h2>
+    <p class="lead">Banks, sellers, builders and clinics make thousands of repetitive calls every day: reminders, confirmations, follow-ups. Telecallers burn out and leads go cold. BetterPitch takes on that volume so your people can focus on the calls that need a human touch.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">Built and run for you</div>
+      <h2>More than an agent: the whole workflow</h2>
+      <p class="lead">A good call is only half the job. BetterPitch also handles retries, WhatsApp follow-ups, CRM updates and reports, so every conversation leads to a next step.</p>
+      <ul class="ticks">
+        <li>Scripts written with your sales and ops teams</li>
+        <li>Call outcomes pushed to your CRM, sheets or helpdesk</li>
+        <li>Pilot running in about two weeks</li>
+        <li>A named success manager who reviews calls every week</li>
+      </ul>
+      <a href="contact.html" class="arrow">Talk to a solutions engineer →</a>
+    </div>
+    <div class="card transcript reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><b>EMI reminder · Hinglish · sample</b><span class="tag" style="background:#173a26;color:var(--ok)">Promise to pay</span></div>
+      <div class="line agent"><span class="tag">00:02</span>नमस्ते रमेश जी, मैं आशा बोल रही हूँ। आपकी इस महीने की EMI 5 तारीख़ को due है।<small>"Hello Ramesh ji, this is Asha. Your EMI for this month is due on the 5th."</small></div>
+      <div class="line user"><span class="tag">00:08</span>हाँ, salary 7 को आएगी, तब pay कर दूँगा।<small>"Yes, my salary comes on the 7th, I'll pay then."</small></div>
+      <div class="line agent"><span class="tag">00:13</span>ठीक है, मैं 7 तारीख़ नोट कर लेती हूँ और WhatsApp पर payment link भेज देती हूँ।<small>"Okay, I'll note the 7th and send a payment link on WhatsApp."</small></div>
+      <div class="audio"><button class="btn btn-ghost" style="padding:8px 14px">▶</button><div class="bar"><i></i></div><small>0:14 / 0:38</small></div>
+      <div class="telemetry">
+        <div><span>Disposition</span><b>PTP · 7th</b></div>
+        <div><span>Follow-up</span><b>WhatsApp link sent</b></div>
+        <div><span>Call cost</span><b>₹4.20</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">The platform</div><h2>Everything you need, from setup to reports</h2><p class="lead">Set it up once, launch campaigns whenever you need, and track every result.</p></div>
+    <div class="grid g3" style="margin-top:40px">
+      <div class="card hover reveal"><div class="num">01</div><h3>Agent setup</h3><p>Choose the voice, accent, greeting and script for each campaign.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+      <div class="card hover reveal"><div class="num">02</div><h3>Your knowledge</h3><p>Upload price lists, FAQs and policies. The agent only answers from them.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+      <div class="card hover reveal"><div class="num">03</div><h3>Actions</h3><p>Transfer calls, trigger APIs, send WhatsApp messages or pass to a human.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+      <div class="card hover reveal"><div class="num">04</div><h3>Campaigns</h3><p>Inbound numbers and outbound lists with calling hours, retries and limits.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+      <div class="card hover reveal"><div class="num">05</div><h3>Call reports</h3><p>Recording, transcript, summary, outcome and cost for every call.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+      <div class="card hover reveal"><div class="num">06</div><h3>Sync</h3><p>Outcomes flow into your CRM, calendar, helpdesk or hiring tool.</p><a class="arrow" href="product-voice.html">Learn more →</a></div>
+    </div>
+    <div class="center" style="margin-top:34px"><a href="product-voice.html" class="btn btn-ghost">Explore the platform</a></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap grid g2">
+    <div class="reveal"><div class="video demo-player" data-demo="realestate" style="margin:0"></div><p style="margin-top:12px;color:var(--muted)">Real estate lead qualification walkthrough</p></div>
+    <div class="reveal"><div class="video demo-player" data-demo="cod" style="margin:0"></div><p style="margin-top:12px;color:var(--muted)">E-commerce COD confirmation walkthrough</p></div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">Languages</div>
+      <h2>Bharat ki har bhasha mein baat karo</h2>
+      <p class="lead">Customers trust a call more when it sounds like home. Pick a language to see how the agent opens a call.</p>
+      <div class="card lang-panel">
+        <small style="color:var(--muted)" id="langName">Hindi</small>
+        <div class="msg" id="langMsg">नमस्ते, मैं आपकी कैसे मदद कर सकती हूँ?</div>
+        <small style="color:var(--muted)">Speakers: <b style="color:var(--text)" id="langPop">600M+</b></small>
+      </div>
+    </div>
+    <div class="langs reveal" id="langs"></div>
+  </div>
+</section>
+
+<section id="usecases">
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Use cases</div><h2>One platform, many call types</h2></div>
+    <div class="grid g4" style="margin-top:40px">
+      <div class="card hover reveal"><span class="badge">Most deployed</span><h3>Lead qualification</h3><p>Call every new lead within minutes and score them for your sales team.</p></div>
+      <div class="card hover reveal"><h3>Collections</h3><p>Polite EMI reminders that log promise-to-pay dates.</p></div>
+      <div class="card hover reveal"><h3>COD confirmation</h3><p>Confirm orders before dispatch to cut returns.</p></div>
+      <div class="card hover reveal"><h3>Appointments</h3><p>Book site visits, demos and clinic slots.</p></div>
+      <div class="card hover reveal"><h3>Cart recovery</h3><p>Call shoppers who left items in their cart.</p></div>
+      <div class="card hover reveal"><h3>Customer support</h3><p>Answer common questions with no hold time.</p></div>
+      <div class="card hover reveal"><h3>Hiring screens</h3><p>First-round calls with candidates, results sent to your ATS.</p></div>
+      <div class="card reveal" style="display:grid;place-items:center;text-align:center"><p>Have another use case?<br><a class="arrow" href="contact.html">Tell us →</a></p></div>
+    </div>
+    <div class="center" style="margin-top:30px"><a href="solutions.html" class="btn btn-ghost">See solutions by industry</a></div>
+    <div class="banner reveal"><h3>Not sure where to start? We'll map your first use case for free.</h3><a href="contact.html" class="btn btn-primary">Get a free assessment</a></div>
+  </div>
+</section>
+
+<section id="developers">
+  <div class="wrap split">
+    <div class="dash reveal">
+      <div class="kpis"><div>Calls today<b>12,480</b></div><div>Resolved<b>87%</b></div><div>Avg. duration<b>1:42</b></div></div>
+      <div class="bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:60%"></i></div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">For ops teams and developers</div>
+      <h2>A dashboard for your team, an API for your tech</h2>
+<pre><span class="c">// Trigger an outbound call</span>
+<span class="k">POST</span> /v1/calls
+{
+  <span class="s">"campaign"</span>: <span class="s">"emi-reminder-june"</span>,
+  <span class="s">"to"</span>: <span class="s">"+91XXXXXXXXXX"</span>,
+  <span class="s">"language"</span>: <span class="s">"hi-IN"</span>
+}
+
+<span class="c">// After the call, a webhook sends you</span>
+{ <span class="s">"outcome"</span>: <span class="s">"promise_to_pay"</span>, <span class="s">"date"</span>: <span class="s">"07-06"</span> }</pre>
+      <p style="margin-top:14px;color:var(--muted)">Works with Zoho, HubSpot, Salesforce, LeadSquared, Google Sheets and Calendly, plus REST APIs and webhooks for everything else.</p>
+      <a href="contact.html" class="arrow">Request API access →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Trust &amp; security</div><h2>Calling done the compliant way</h2></div>
+    <div class="grid g3" style="margin-top:40px">
+      <div class="card reveal"><h3>📵 DND scrubbing</h3><p>Numbers are checked against do-not-call lists before dialing.</p></div>
+      <div class="card reveal"><h3>⏰ Calling hours</h3><p>Calls only go out in the time windows you and the rules allow.</p></div>
+      <div class="card reveal"><h3>✅ Consent records</h3><p>Every call is logged with consent, recording and transcript.</p></div>
+      <div class="card reveal"><h3>🇮🇳 Data in India</h3><p>Option to keep recordings and data on Indian servers.</p></div>
+      <div class="card reveal"><h3>🛡 Access control</h3><p>Role-based access so each team sees only what it needs.</p></div>
+      <div class="card reveal"><h3>🔒 Encryption</h3><p>Data encrypted while moving and while stored.</p></div>
+    </div>
+    <div class="certs"><span class="chip">DND / NCPR checks</span><span class="chip">India data residency</span><span class="chip">Audit trails</span><span class="chip">AES-256</span><span class="chip">TLS 1.3</span></div>
+    <div class="center"><a href="privacy-policy.html" class="btn btn-ghost">Read our privacy policy</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Results</div><h2>Results our customers see</h2></div>
+    <div class="grid g2" style="margin-top:40px">
+      <div class="card reveal"><b style="color:var(--muted)">Fintrail (NBFC)</b><div class="stat">+35%</div><p>more EMIs collected on time</p></div>
+      <div class="card reveal"><b style="color:var(--muted)">UrbanNest (Real estate)</b><div class="stat">4×</div><p>more site visits booked from portal leads</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card reveal"><div class="stat">-30%</div><p>fewer COD returns for a D2C brand</p></div>
+      <div class="card reveal"><div class="stat">2.5×</div><p>more abandoned carts recovered</p></div>
+      <div class="card reveal"><div class="stat">10k</div><p>candidates screened in one hiring drive</p></div>
+    </div>
+    <div class="center" style="margin-top:26px"><a href="case-studies.html" class="btn btn-ghost">Read customer stories</a></div>
+    <p class="center" style="color:var(--muted);font-size:13px;margin-top:18px">*Company names and figures are fictional sample data for this demo.</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap center reveal">
+    <div class="eyebrow">Pricing</div>
+    <h2>Plans that grow with your call volume</h2>
+    <div class="price">₹3<small> / minute onwards</small></div>
+    <div class="chips" style="padding:20px 0"><span class="chip">Billed in INR + GST</span><span class="chip">No credit card to start</span><span class="chip">Cancel anytime</span></div>
+    <a href="pricing.html" class="btn btn-primary">See full pricing</a>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="wrap">
+    <div class="banner reveal" style="flex-direction:column;text-align:center;padding:60px 24px">
+      <h2>Your next 1,000 calls, handled by BetterPitch</h2>
+      <p class="lead">Tell us one call your team makes every day. We'll show you an agent doing it in a free 30-minute demo.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+        <a href="contact.html" class="btn btn-primary">Book a demo</a><a href="#demo" class="btn btn-ghost">Try the agent</a>
+      </div>
+      <p style="color:var(--muted)">Or call +91 00000 00000 · <a href="product-chat.html" style="text-decoration:underline">Chat with us</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/main.js" data-root="./"></script>
+<script src="assets/demo-player.js"></script>
+<script>
+
+// demo call widget (simulated)
+const callBtn=document.getElementById('callBtn'),endBtn=document.getElementById('endBtn'),
+      st=document.getElementById('status'),av=document.getElementById('avatar');let timer,secs=0;
+callBtn.onclick=()=>{st.className='status on';st.innerHTML='<i></i>Connecting…';
+  setTimeout(()=>{av.classList.add('live');secs=0;timer=setInterval(()=>{secs++;st.innerHTML='<i></i>Live · 0:'+String(secs).padStart(2,'0')},1000)},800);
+  callBtn.style.display='none';endBtn.style.display=''};
+endBtn.onclick=()=>{clearInterval(timer);av.classList.remove('live');st.className='status';st.innerHTML='<i></i>Call ended · tap to start again';
+  endBtn.style.display='none';callBtn.style.display=''};
+
+// hero: voice/chat samples (simulated playback)
+const SAMPLES={voice:[["NBFC · EMI reminder (Hinglish)","Logs a promise-to-pay date","1:05"],["Real estate · portal lead","Qualifies budget, books a site visit","1:52"]],
+  chat:[["D2C · COD confirmation","Confirms address before dispatch","0:48"],["Hiring · first-round screen","Checks notice period and salary","2:10"]]};
+const samplesBox=document.getElementById('samples');let playing=null;
+function renderSamples(m){samplesBox.innerHTML='';SAMPLES[m].forEach(([t,s,len])=>{const b=document.createElement('button');b.className='sample';
+  b.style.animationDelay=(samplesBox.children.length*.08)+'s';
+  b.innerHTML='<span class="pb">▶</span><span><b>'+t+'</b><small>'+s+'</small></span><span class="mini"><i></i><i></i><i></i><i></i><i></i></span><span class="len">'+len+'</span>';
+  b.onclick=()=>{const on=playing!==b;samplesBox.querySelectorAll('.sample').forEach(x=>{x.classList.remove('playing');x.querySelector('.pb').textContent='▶'});
+    av.classList.toggle('live',on);if(on){b.classList.add('playing');b.querySelector('.pb').textContent='❚❚';st.className='status on';st.innerHTML='<i></i>Playing sample: '+t}
+    else{st.className='status';st.innerHTML='<i></i>Idle · tap to start a call'}playing=on?b:null};samplesBox.appendChild(b)})}
+document.querySelectorAll('#mode button').forEach(btn=>btn.onclick=()=>{document.getElementById('mode').dataset.mode=btn.dataset.mode;document.querySelectorAll('#mode button').forEach(x=>x.classList.toggle('on',x===btn));playing=null;av.classList.remove('live');st.className='status';st.innerHTML='<i></i>Idle · tap to start a call';renderSamples(btn.dataset.mode)});
+renderSamples('voice');
+
+// hero: animated tile grid that glows near the pointer
+(function(){
+  const grid=document.getElementById('tiles'),hero=grid.parentElement;
+  function build(){
+    const cols=Math.ceil(hero.clientWidth/122)+1,rows=Math.ceil(hero.clientHeight/60)+1;
+    grid.style.gridTemplateColumns='repeat('+cols+',112px)';grid.innerHTML='';
+    // bloom: each tile lights up later the farther it is from the centre, so a wave spreads outwards
+    const cx=(cols-1)/2,cy=(rows-1)/2;
+    for(let i=0;i<cols*rows;i++){const t=document.createElement('i'),x=i%cols,y=Math.floor(i/cols);
+      const d=Math.hypot((x-cx)*122,(y-cy)*60);t.style.animationDelay=(d/650).toFixed(2)+'s';grid.appendChild(t)}
+  }
+  build();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(build,200)});
+  hero.addEventListener('pointermove',e=>{
+    const el=document.elementsFromPoint(e.clientX,e.clientY).find(n=>n.parentElement===grid);
+    if(el&&!el.classList.contains('hot')){el.classList.add('hot');setTimeout(()=>el.classList.remove('hot'),900)}
+  });
+})();
+
+// hero: waveform bars under the orb
+(function(){
+  const w=document.getElementById('wave');
+  for(let i=0;i<48;i++){const b=document.createElement('i');const c=Math.abs(i-24)/24;
+    b.style.setProperty('--h',(18+Math.random()*70*(1-c*.7)).toFixed(0)+'%');
+    b.style.animationDelay=(-Math.random()).toFixed(2)+'s';b.style.animationDuration=(.5+Math.random()*.7).toFixed(2)+'s';w.appendChild(b)}
+})();
+
+// language selector
+const L=[['अ','Hindi','नमस्ते, मैं आपकी कैसे मदद कर सकती हूँ?','600M+'],['A','English','Hello, how can I help you today?','1.5B+'],
+['অ','Bengali','নমস্কার, আমি কীভাবে সাহায্য করতে পারি?','270M+'],['அ','Tamil','வணக்கம், நான் எப்படி உதவலாம்?','85M+'],
+['అ','Telugu','నమస్కారం, నేను ఎలా సహాయం చేయగలను?','95M+'],['अ','Marathi','नमस्कार, मी तुमची कशी मदत करू?','99M+'],
+['અ','Gujarati','નમસ્તે, હું તમારી કેવી રીતે મદદ કરી શકું?','60M+'],['ಅ','Kannada','ನಮಸ್ಕಾರ, ನಾನು ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?','60M+'],
+['അ','Malayalam','നമസ്കാരം, ഞാൻ എങ്ങനെ സഹായിക്കാം?','38M+'],['ਅ','Punjabi','ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਕਿਵੇਂ ਮਦਦ ਕਰਾਂ?','125M+'],
+['ଅ','Odia','ନମସ୍କାର, ମୁଁ କିପରି ସାହାଯ୍ୟ କରିବି?','40M+']];
+const box=document.getElementById('langs');
+L.forEach((l,i)=>{const d=document.createElement('div');d.className='lang'+(i?'':' active');d.innerHTML='<b>'+l[0]+'</b><small>'+l[1]+'</small>';
+  d.onclick=()=>{box.querySelectorAll('.lang').forEach(x=>x.classList.remove('active'));d.classList.add('active');
+    langName.textContent=l[1];langMsg.textContent=l[2];langPop.textContent=l[3]};box.appendChild(d)});
+
+</script>
+</body>
+</html>

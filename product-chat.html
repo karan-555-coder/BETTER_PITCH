@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>WhatsApp Follow-ups – BetterPitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/pages.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">BetterPitch Follow-ups</div>
+    <h1>The conversation continues <em>after the call</em></h1>
+    <p class="lead">After every call, BetterPitch sends the right next message on WhatsApp or SMS: payment links, brochures, location pins and booking confirmations.</p>
+    <div class="ctas"><a href="contact.html" class="btn btn-primary">Book a demo →</a><a href="pricing.html" class="btn btn-ghost">See pricing</a></div>
+  </div>
+</header>
+
+<section style="padding-top:20px">
+  <div class="wrap split">
+    <div class="phone reveal" id="phone">
+      <div class="bar-top"><span class="dot"></span><div><b>Fintrail Finance</b><small>● online</small></div></div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Call + message</div>
+      <h2>Calls get the commitment, messages get it done</h2>
+      <p class="lead">A customer agrees on the call, then gets a link they can act on. BetterPitch tracks whether they did, and calls again if they didn't.</p>
+      <ul class="ticks">
+        <li>Payment links right after an EMI reminder call</li>
+        <li>Brochures and location pins after a property call</li>
+        <li>Order confirmation after a COD call</li>
+        <li>Automatic re-call if the customer doesn't act</li>
+      </ul>
+      <button class="btn btn-ghost" id="replay">↻ Replay conversation</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Channels</div><h2>Where follow-ups go</h2></div>
+    <div class="grid g4" style="margin-top:40px">
+      <div class="card hover reveal"><h3>💚 WhatsApp</h3><p>Approved templates sent through the official Business API.</p></div>
+      <div class="card hover reveal"><h3>✉️ SMS</h3><p>DLT-registered SMS for customers who aren't on WhatsApp.</p></div>
+      <div class="card hover reveal"><h3>📧 Email</h3><p>Summaries and documents sent to the customer or your team.</p></div>
+      <div class="card hover reveal"><h3>📊 CRM</h3><p>Every message and reply logged next to the call record.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">FAQ</div><h2>Questions about the Chat Agent</h2></div>
+    <div class="faq reveal">
+      <details><summary>Can my team reply to customers?</summary><p>Yes. Replies show up in the dashboard, and anyone on your team can respond.</p></details>
+      <details><summary>Does it work with my existing WhatsApp number?</summary><p>In most cases, yes. We help you move the number to the WhatsApp Business API during setup.</p></details>
+      <details><summary>Is it included in my plan?</summary><p>Follow-ups are included on Growth and Enterprise. On Starter they're available as an add-on.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap"><div class="banner reveal"><h3>Turn every "yes" on a call into a finished action.</h3><a href="contact.html" class="btn btn-primary">Book a demo</a></div></div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/main.js" data-root="./"></script>
+<script>
+const convo=[["in","Hi Ramesh ji 👋 As discussed on the call, here is your EMI payment link for ₹6,450, due on the 7th."],["in","💳 pay.fintrail.example/emi/48213"],
+["out","Thanks, will pay on the 7th"],["in","Great! We'll send a reminder on the morning of the 7th. Reply PAID once it's done."],
+["out","PAID ✅"],["in","Payment received. Thank you, Ramesh ji! Your receipt has been emailed 🙏"]];
+const phone=document.getElementById("phone");let timers=[];
+function play(){timers.forEach(clearTimeout);timers=[];phone.querySelectorAll(".bubble").forEach(b=>b.remove());
+  convo.forEach(([side,text],i)=>{const b=document.createElement("div");b.className="bubble "+side;b.textContent=text;phone.appendChild(b);
+    timers.push(setTimeout(()=>b.classList.add("show"),400+i*1100))})}
+document.getElementById("replay").onclick=play;
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){play();o.disconnect()}}).observe(phone);
+</script>
+</body>
+</html>

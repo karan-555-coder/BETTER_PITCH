@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>Pricing – BetterPitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/pages.css">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-hero" style="padding-bottom:10px">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h1>Plans that scale with <em>your call volume</em></h1>
+    <p class="lead">Pay for the minutes and parallel calls you need. Prices in INR plus GST. No credit card needed to start, cancel anytime.</p>
+    <div class="toggle" id="billing"><button class="on" data-cycle="m">Monthly</button><button data-cycle="y">Yearly · save 20%</button></div>
+  </div>
+</header>
+
+<section style="padding-top:0">
+  <div class="wrap grid g3">
+    <div class="card plan reveal">
+      <h3>Starter</h3><p>For teams testing their first voice campaign.</p>
+      <div class="amt" data-m="4,999" data-y="3,999">₹4,999<small> / month</small></div><p style="font-size:13px">Includes 1,000 minutes · ₹5/min after</p>
+      <ul class="ticks"><li>1 voice agent</li><li>2 calls at the same time</li><li>Hindi + English</li><li>Recordings &amp; transcripts</li></ul>
+      <a href="contact.html" class="btn btn-ghost">Start with Starter</a>
+    </div>
+    <div class="card plan featured reveal">
+      <span class="badge" style="width:fit-content">Most popular</span>
+      <h3>Growth</h3><p>For sales and collections teams calling every day.</p>
+      <div class="amt" data-m="14,999" data-y="11,999">₹14,999<small> / month</small></div><p style="font-size:13px">Includes 4,000 minutes · ₹4/min after</p>
+      <ul class="ticks"><li>Everything in Starter</li><li>5 agents, 10 calls at once</li><li>WhatsApp follow-ups</li><li>CRM sync &amp; webhooks</li><li>All Indian languages</li></ul>
+      <a href="contact.html" class="btn btn-primary">Choose Growth</a>
+    </div>
+    <div class="card plan reveal">
+      <h3>Enterprise</h3><p>For banks, NBFCs, large brands and contact centres.</p>
+      <div class="amt">Custom</div><p style="font-size:13px">Volume pricing from ₹3/min</p>
+      <ul class="ticks"><li>Everything in Growth</li><li>Custom concurrency</li><li>India data residency</li><li>Dedicated success manager</li><li>DND checks &amp; audit trails</li></ul>
+      <a href="contact.html" class="btn btn-ghost">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center reveal"><h2>Compare plans</h2></div>
+    <div class="table-wrap reveal" style="margin-top:30px">
+      <table class="cmp">
+        <tr><th>Feature</th><th>Starter</th><th>Growth</th><th>Enterprise</th></tr>
+        <tr><td>Included minutes</td><td>1,000</td><td>4,000</td><td>Custom</td></tr>
+        <tr><td>Inbound &amp; outbound calls</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Recordings &amp; transcripts</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Campaign retries &amp; calling hours</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>WhatsApp follow-ups</td><td>Add-on</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>CRM integration</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Languages</td><td>2</td><td>20+</td><td>20+</td></tr>
+        <tr><td>Parallel calls</td><td>2</td><td>10</td><td>Custom</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">FAQ</div><h2>Billing questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>What counts as a minute?</summary><p>Connected talk time, billed per minute. Unanswered and busy calls are free.</p></details>
+      <details><summary>What happens if I use more minutes?</summary><p>Your campaigns keep running. Extra minutes are charged at your plan's rate on the next invoice.</p></details>
+      <details><summary>Is GST included?</summary><p>Prices shown are before GST. Your invoice shows GST separately, so you can claim input credit.</p></details>
+      <details><summary>Can I change plans later?</summary><p>Yes, you can upgrade or downgrade at any time. Changes apply from your next billing cycle.</p></details>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/main.js" data-root="./"></script>
+<script>
+document.querySelectorAll("#billing button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#billing button").forEach(x=>x.classList.toggle("on",x===b));
+  const c=b.dataset.cycle;
+  document.querySelectorAll(".amt[data-m]").forEach(a=>a.innerHTML="₹"+a.dataset[c]+"<small> / month"+(c==="y"?", billed yearly":"")+"</small>");
+});
+</script>
+</body>
+</html>
