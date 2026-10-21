@@ -29,16 +29,17 @@
       <div class="hero2-stats enter" style="--d:.54s"><div><b>20+</b>Indian languages</div><div><b>₹3</b>per minute onwards</div><div><b>2 weeks</b>to go live</div></div>
     </div>
 
-    <div class="hero2-panel enter-side" id="demo">
+    <div class="hero2-demo enter-side" id="demo">
       <div class="mode" id="mode" data-mode="voice">
-        <button class="on" data-mode="voice">🎙 Voice</button>
+        <button class="on" data-mode="voice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M9 10v4M12 8v8M15 10v4"/></svg>Voice AI</button>
         <span class="switch" id="modeSwitch" role="switch" aria-label="Switch between voice and chat"><span class="mode-knob"></span></span>
-        <button data-mode="chat">💬 Chat</button>
+        <button data-mode="chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><text x="12" y="14.8" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" stroke="none">AI</text></svg>Chat AI</button>
       </div>
+    <div class="hero2-panel">
       <div class="orb-wrap">
         <div class="avatar" id="avatar" role="button" aria-label="Start a demo call"><span class="tri"></span></div>
         <div class="wave" id="wave" aria-hidden="true"></div>
-        <div class="status" id="status"><i></i>Idle · tap to start a call</div>
+        <div class="status" id="status" aria-live="polite"><i></i>Idle · tap to start a call</div>
       </div>
       <div class="samples" id="samples"></div>
       <div class="row">
@@ -46,6 +47,7 @@
         <button class="btn btn-end" id="endBtn" style="display:none">End call</button>
         <a href="contact.html" class="btn btn-outline-light">Talk to sales</a>
       </div>
+    </div>
     </div>
   </div>
 </header>
@@ -293,8 +295,10 @@ renderSamples('voice');
 // hero: waveform bars under the orb
 (function(){
   const w=document.getElementById('wave');
-  for(let i=0;i<48;i++){const b=document.createElement('i');const c=Math.abs(i-24)/24;
-    b.style.setProperty('--h',(18+Math.random()*70*(1-c*.7)).toFixed(0)+'%');
+  // mostly tiny ticks with a few tall spikes, like a sparse audio trace
+  const spikes={6:30,8:60,10:95,12:40,17:15,24:10,30:20,36:100,38:55,40:30};
+  for(let i=0;i<48;i++){const b=document.createElement('i');
+    b.style.setProperty('--h',(spikes[i]||(4+Math.random()*12)).toFixed(0)+'%');
     b.style.animationDelay=(-Math.random()).toFixed(2)+'s';b.style.animationDuration=(.5+Math.random()*.7).toFixed(2)+'s';w.appendChild(b)}
 })();
 

@@ -35,6 +35,8 @@ You can also open `index.html` directly in a browser. Everything except the 404 
 ```
 assets/style.css   base design system (colours, buttons, cards, grid, nav, footer)
 assets/pages.css   components for inner pages (pricing, FAQ, forms, articles…)
+assets/theme.css   purple/black theme and the home hero demo panel (glass card, Voice/Chat toggle, waveform)
+assets/demo-player.js  simulated call-recording players used on the home page
 assets/main.js     shared header + footer, mobile menu, scroll animations, demo forms
 assets/favicon.svg logo icon
 server.mjs         tiny static file server
@@ -47,4 +49,4 @@ Colours are CSS variables at the top of `assets/style.css` (`--accent`, `--accen
 
 - All company names, customer stories, figures, prices, phone numbers and legal text are sample data for a demo.
 - Forms do not send data. They show a confirmation message only.
-- The "Start call" demo on the home page is simulated.
+- The "Start call" demo on the home page is simulated. The Voice AI / Chat AI toggle switches between sample conversations.
