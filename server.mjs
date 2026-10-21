@@ -20,7 +20,8 @@ http.createServer(async (req, res) => {
   if (!path.extname(file)) file += ".html"; // allow /pricing as well as /pricing.html
   try {
     const body = await fs.readFile(file);
-    res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] || "application/octet-stream" }).end(body);
+    // no-store so edits show up on a normal refresh while developing
+    res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] || "application/octet-stream", "Cache-Control": "no-store" }).end(body);
   } catch {
     res.writeHead(404, { "Content-Type": TYPES[".html"] }).end(await fs.readFile(path.join(ROOT, "404.html")));
   }

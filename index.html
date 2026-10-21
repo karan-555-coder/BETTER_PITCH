@@ -164,8 +164,48 @@
 <section id="developers">
   <div class="wrap split">
     <div class="dash reveal">
-      <div class="kpis"><div>Calls today<b>12,480</b></div><div>Resolved<b>87%</b></div><div>Avg. duration<b>1:42</b></div></div>
-      <div class="bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:60%"></i></div>
+      <div class="dash-head">
+        <div><b>Campaign overview</b><small><span class="live"></span>Live · 6 campaigns running</small></div>
+        <div class="tabs"><span>Today</span><span class="on">7 days</span><span>30 days</span></div>
+      </div>
+      <div class="kpis">
+        <div>Calls today<b>12,480</b><em>▲ 18% vs last week</em></div>
+        <div>Resolved<b>87%</b><em>▲ 4.2 pts</em></div>
+        <div>Avg. duration<b>1:42</b><em>▲ 9s faster</em></div>
+      </div>
+      <div class="chart">
+        <div class="chart-head">
+          <div><span class="lbl">Calls this week</span><b>68.3k <em>▲ 12%</em></b></div>
+          <span class="legend"><i class="l1"></i>This week<i class="l2"></i>Last week</span>
+        </div>
+        <div class="plot">
+          <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="dashFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d946ef" stop-opacity=".32"/><stop offset="1" stop-color="#d946ef" stop-opacity="0"/></linearGradient></defs>
+            <path class="prev" d="M0,81 C25,81 25,59 50,59 C75,59 75,68 100,68 C125,68 125,48 150,48 C175,48 175,53 200,53 C225,53 225,35 250,35 C275,35 275,62 300,62"/>
+            <path class="area" d="M0,74 C25,74 25,50 50,50 C75,50 75,63 100,63 C125,63 125,32 150,32 C175,32 175,43 200,43 C225,43 225,14 250,14 C275,14 275,53 300,53 L300,120 L0,120 Z"/>
+            <path class="line" d="M0,74 C25,74 25,50 50,50 C75,50 75,63 100,63 C125,63 125,32 150,32 C175,32 175,43 200,43 C225,43 225,14 250,14 C275,14 275,53 300,53"/>
+          </svg>
+          <span class="peak" style="left:83.33%;top:11.7%"><b>Sat · 14.2k</b></span>
+        </div>
+        <div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+      </div>
+      <div class="dash-foot">
+        <div class="outcomes">
+          <span class="lbl">Call outcomes</span>
+          <div class="donut-row">
+            <div class="donut"><b>87%</b><small>resolved</small></div>
+            <ul><li><i class="o1"></i>Converted<b>52%</b></li><li><i class="o2"></i>Follow-up<b>35%</b></li><li><i class="o3"></i>Unreached<b>13%</b></li></ul>
+          </div>
+        </div>
+        <div class="feed">
+          <span class="lbl">Recent calls</span>
+          <ul>
+            <li><span class="av">PS</span><span class="caller">Priya S.<small>Lead qualification · Hindi</small></span><em class="ok">Qualified</em></li>
+            <li><span class="av">AK</span><span class="caller">Arun K.<small>COD confirm · Tamil</small></span><em class="ok">Confirmed</em></li>
+            <li><span class="av">RM</span><span class="caller">Rahul M.<small>EMI reminder · Hinglish</small></span><em class="warn">PTP 24 Oct</em></li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="reveal">
       <div class="eyebrow">For ops teams and developers</div>
@@ -251,8 +291,9 @@
 // demo call widget (simulated)
 const callBtn=document.getElementById('callBtn'),endBtn=document.getElementById('endBtn'),
       st=document.getElementById('status'),av=document.getElementById('avatar');let timer,secs=0;
-callBtn.onclick=()=>{st.className='status on';st.innerHTML='<i></i>Connecting…';
-  setTimeout(()=>{av.classList.add('live');secs=0;timer=setInterval(()=>{secs++;st.innerHTML='<i></i>Live · 0:'+String(secs).padStart(2,'0')},1000)},800);
+// go live on the same click: no connecting delay
+callBtn.onclick=()=>{av.classList.add('live');st.className='status on';st.innerHTML='<i></i>Live · 0:00';
+  secs=0;timer=setInterval(()=>{secs++;st.innerHTML='<i></i>Live · 0:'+String(secs).padStart(2,'0')},1000);
   callBtn.style.display='none';endBtn.style.display=''};
 endBtn.onclick=()=>{clearInterval(timer);av.classList.remove('live');st.className='status';st.innerHTML='<i></i>Call ended · tap to start again';
   endBtn.style.display='none';callBtn.style.display=''};
@@ -299,7 +340,12 @@ renderSamples('voice');
   const spikes={6:30,8:60,10:95,12:40,17:15,24:10,30:20,36:100,38:55,40:30};
   for(let i=0;i<48;i++){const b=document.createElement('i');
     b.style.setProperty('--h',(spikes[i]||(4+Math.random()*12)).toFixed(0)+'%');
-    b.style.animationDelay=(-Math.random()).toFixed(2)+'s';b.style.animationDuration=(.5+Math.random()*.7).toFixed(2)+'s';w.appendChild(b)}
+    // hover ripple spreads out from the centre
+    b.style.setProperty('--d',(Math.abs(i-23.5)*12).toFixed(0)+'ms');
+    // live-call height: taller towards the middle; negative delay so motion is mid-swing on the first frame
+    b.style.setProperty('--lh',(30+Math.random()*70*(1-Math.abs(i-23.5)/40)).toFixed(0)+'%');
+    b.style.setProperty('--dur',(.35+Math.random()*.4).toFixed(2)+'s');
+    b.style.animationDelay=(-Math.random()).toFixed(2)+'s';w.appendChild(b)}
 })();
 
 // language selector
